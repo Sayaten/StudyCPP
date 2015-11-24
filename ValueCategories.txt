@@ -1,0 +1,20 @@
+About Value Categories
+Date: 15.11.24
+
+has identity: it's possible to determine whether the expression refers to the same entity as another expression, 
+			  such as by comparing addresses of the objects or functions they identify (obtained directly or indirectly)
+can be moved from: move constructor, move assignment operator, 
+				   or another function overload that implements move semantics can bind to the expression.
+
+rvalue  : may or may not have identity and can be moved from are called rvalue ( prvalue or xvalue ) 
+prvalue : do not have identity and can be moved from are called prvalue expressions
+		  prvalue means pure rvalue
+lvalue  : have identity and cannot be moved from are called lvalue expressions
+glvalue : have identity and may or may not be moved from are called glvalue ( lvalue or xvalue )
+		  glvalue means generalized lvalue
+xvalue  : have identity and can be moved from are called xvalue expressions
+
+refer http://en.cppreference.com/w/cpp/language/value_category
+	  http://bunhere.tistory.com/409
+	  http://blog.naver.com/shunhegel/220425289205
+
