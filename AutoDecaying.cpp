@@ -28,6 +28,10 @@ int main()
 	auto x7 = { 27 };
 	auto x8{ 27 };
 
+	/* 
+		error case
+		auto x9 = {1, 2, 3.0};
+	*/
 	std::cout << "x1 : " << typeid(x1).name() << std::endl;
 	std::cout << "x2 : " << typeid(x2).name() << std::endl;
 	std::cout << "x3 : " << typeid(x3).name() << std::endl;
