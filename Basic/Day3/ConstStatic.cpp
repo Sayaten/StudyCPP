@@ -12,7 +12,7 @@ class Singleton
 			}
 			return instance;
 		}
-		static Singleton* removeInstance()
+		static void removeInstance()
 		{
 			if(instance != nullptr)
 			{
