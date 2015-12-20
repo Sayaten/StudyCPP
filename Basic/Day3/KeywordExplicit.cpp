@@ -29,8 +29,32 @@ void Apple::setCount(int count)
 
 int main()
 {
-	Apple a(5);
-	//Apple a = 5;
+	//Apple a(5);
+	Apple a = 5;
 	std::cout << a.getCount() << std::endl;
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
