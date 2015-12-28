@@ -2,6 +2,7 @@
 
 class Animal
 {
+	friend class Human;
 	private:
 		int age;
 	public:
@@ -14,7 +15,7 @@ class Animal
 class Human : public Animal
 {
 	public:
-		void move() { std::cout << "A human moves" << std::endl; }
+		int move() { std::cout << "A human moves" << std::endl; return 0; }
 };
 
 int main()
