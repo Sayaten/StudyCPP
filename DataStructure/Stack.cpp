@@ -17,7 +17,7 @@ class Stack
 		T pop();
 		T peek();
 		void printAll();
-		void quickSort(int (*comp)(T data1, T data2), int start, int end);
+		void sorting(int (*comp)(T data1, T data2), int start, int end);
 };
 
 template <typename T>
@@ -77,7 +77,7 @@ T Stack<T>::peek()
 }
 
 template <typename T>
-void Stack<T>::quickSort(int (*comp)(T data1, T data2), int start, int end)
+void Stack<T>::sorting(int (*comp)(T data1, T data2), int start, int end)
 {
 	int i = start + 1;
 	int j = end;
@@ -140,7 +140,7 @@ int main()
 	stack.push(5);
 	stack.printAll();
 
-	stack.quickSort(compare, 0, stack.getTop());
+	stack.sorting(compare, 0, stack.getTop());
 
 	stack.printAll();
 
