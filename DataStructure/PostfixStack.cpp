@@ -32,17 +32,19 @@ bool Stack::isFull()
 }
 void Stack::push(char data)
 {
-	if(top == 10)
+	if(isFull())
 	{
 		std::cout << "stack is full" << std::endl;
+		return;
 	}
 	this -> stack[++top] = data;
 }
 char Stack::pop()
 {
-	if(top == -1)
+	if(isEmpty())
 	{
 		std::cout << "stack is empty" << std::endl;
+		return '\n';
 	}
 	return stack[top--];
 }
@@ -134,7 +136,7 @@ char* Stack::infixToPostfix(char *infix)
 int main()
 {
 	Stack stack;
-	char *infix, buff[100];
+	char buff[100];
 	char *postfix = nullptr;
 	int len;
 
@@ -146,16 +148,11 @@ int main()
 	len = strlen(postfix);
 	for(int i = 0 ; i <= len ; ++i)
 	{	
-		//if(!('0' <= postfix[i] && postfix[i] <= '9'))
-		//{
-		//	std::cout << " " << postfix[i] << " ";
-		//}
 		std::cout << postfix[i];
 	}
 	std::cout << std::endl;
 	if(postfix != nullptr)
 		delete[] postfix;
-	//delete[] infix;
 
 	return 0;
 }
