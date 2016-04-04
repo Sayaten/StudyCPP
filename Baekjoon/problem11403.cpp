@@ -30,10 +30,10 @@ int main()
 					result[i][j] = 0;
 					break;
 				}
-				else if(path.front() == j || result[path.front()][j] == 1)
+				else if(nodes[path.front()][j] == 1 || result[path.front()][j] == 1)
 				{
 					result[i][j] = 1;
-					while(path.empty()) path.pop();
+					while(!path.empty()) path.pop();
 					break;
 				}
 				else
