@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <cstring>
 #include <stack>
-#include <deque>
 int main()
 {
 	char input[1000002] = { 0, };
@@ -14,63 +13,33 @@ int main()
 	input_len = strlen(input);
 	bomb_len = strlen(bomb);
 
-	std::stack<char> check;
-	std::deque< std::pair<int,int> > bomb_pos;
-	int cnt = 0, bomb_cnt = 0;
+	std::stack<char> str;
 
-	bomb_pos.push_back(std::pair<int, int>(0, -1));
-	while(cnt < input_len)
+	for(int i = input_len - 1; i >= 0 ; --i)
 	{
-		if(input[cnt] == bomb[bomb_len - 1])
+		str.push(input[i]);
+		if(input[i] == bomb[0])
 		{
-			int pos = cnt;
-			int push_cnt = 0;
-			if(bomb_pos.size() > 1 && pos - bomb_pos.back().second < bomb_len)
+			char temp_str[37] = { 0, };
+			int cnt = 0;
+			while(!str.empty() && cnt < bomb_len)
 			{
-				while(pos > bomb_pos.back().second) 
-				{
-					check.push(input[pos--]);
-					++push_cnt;
-				}
-				pos = bomb_pos.back().first - 1;
+				temp_str[cnt++] = str.top();
+				str.pop();
 			}
-			while(pos >= 0 && push_cnt < bomb_len)
-			{
-				check.push(input[pos--]);
-				++push_cnt;
-			}
-			++pos;
-			if(check.size() >= bomb_len) 
-			{
-				char comp_str[bomb_len + 1];
-				for(int i = 0 ; i < bomb_len ; ++i)
-				{
-					comp_str[i] = check.top();
-					check.pop();
-				}
-				comp_str[bomb_len] = '\0';
-				if(!strcmp(comp_str, bomb))
-				{
-					++bomb_cnt;
-					input[pos] = '\0';
-					bomb_pos.push_back(std::pair<int, int>(pos, cnt));
-				}
-			}
-		}
-		++cnt;
-	}
-	if(bomb_cnt * bomb_len == input_len) printf("%s","FRULA"); 
-	else
-	{
-		cnt = 0;
-		while(cnt < input_len - 1) 
-		{
-			cnt = bomb_pos.front().second + 1;
-			bomb_pos.pop_front();		
-			if(bomb_pos.front().first <= cnt && cnt <= bomb_pos.front().second) continue;
-			printf("%s", input + cnt);
+			if(cnt != bomb_len || strcmp(temp_str, bomb)) 
+				for(int j = cnt - 1 ; j >= 0 ; --j) 
+					str.push(temp_str[j]);
 		}
 	}
+	
+	if(str.empty()) printf("%s","FRULA"); 
+	else 
+		while(!str.empty())
+		{
+			printf("%c", str.top());
+			str.pop();
+		}
 	printf("\n");
 	return 0;
 }

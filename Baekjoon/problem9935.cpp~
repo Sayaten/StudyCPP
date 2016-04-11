@@ -1,0 +1,26 @@
+#include <cstdio>
+#include <cstring>
+#include <stack>
+#include <deque>
+int main()
+{
+	char input[1000002] = { 0, };
+	char bomb[37] = { 0, };
+	int input_len, bomb_len;
+
+	scanf("%s", input);
+	scanf("%s", bomb);
+
+	input_len = strlen(input);
+	bomb_len = strlen(bomb);
+
+	char *bomb_pos;
+	while(bomb_pos = strstr(input, bomb))
+	{
+		bomb_pos[0] = '\0';
+		strcat(input, bomb_pos + bomb_len);
+	}
+	if(!strlen(input)) printf("%s\n","FRULA"); 
+	else printf("%s\n", input);
+	return 0;
+}
