@@ -19,9 +19,13 @@ int main(int argc, char* argv[])
 		h = rand() % h + 2;
 		w = rand() % w + 2;
 		ofile << h << " " << w << std::endl;
-		for(int j = 0 ; j < h ; ++j) ofile << rand() % 9;
+		for(int j = 0 ; j < h ; ++j) 
+		{
+			for(int k = 0 ; k < w ; ++k)
+				ofile << rand() % 3 - 1 << " "; 
+			ofile << std::endl;
+		}
 	}
-	ofile << std::endl;
 	ofile.close();
 	return 0;
 }
