@@ -16,22 +16,12 @@ int main(int argc, char* argv[])
 
 	for(int i = 0 ; i < 1 ; ++i)
 	{
-		//h = rand() % h + 2;
-		//w = rand() % w + 2;
+		h = rand() % h + 2;
+		w = rand() % w + 2;
 		ofile << h << " " << w << std::endl;
-
-		for(int j = 0 ; j < h ; ++j)
-		{
-			for(int k = 0 ; k < w ; ++k)
-			{
-				r = rand() % 2;
-				if(j == 0 || k == w - 1) r = 0;
-				//if(j == 0 && k == 0 || j == h - 1 && k == w - 1) r = 0;
-				ofile << r;
-			}
-			ofile << std::endl;
-		}
+		for(int j = 0 ; j < h ; ++j) ofile << rand() % 9;
 	}
+	ofile << std::endl;
 	ofile.close();
 	return 0;
 }
