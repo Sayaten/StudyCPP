@@ -14,18 +14,14 @@ int main(int argc, char* argv[])
 	h = std::stoi(argv[1]);
 	w = std::stoi(argv[2]);
 
-	for(int i = 0 ; i < 1 ; ++i)
+	ofile << h << " " << w << std::endl;
+	for(int j = 0 ; j < w ; ++j) 
 	{
-		h = rand() % h + 2;
-		w = rand() % w + 2;
-		ofile << h << " " << w << std::endl;
-		for(int j = 0 ; j < h ; ++j) 
-		{
-			for(int k = 0 ; k < w ; ++k)
-				ofile << rand() % 3 - 1 << " "; 
-			ofile << std::endl;
-		}
+		ofile << rand() % h + 1 << " " << rand() % h + 1 << " " << rand() % h + 1 << std::endl; 
 	}
+	int v1 = rand() % h + 1, v2 = rand() % h + 1;
+	if(v1 == v2) v2 += 1;
+	ofile << v1 << " " << v2 << std::endl;
 	ofile.close();
 	return 0;
 }
