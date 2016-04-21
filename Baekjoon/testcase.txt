@@ -1,16 +1,27 @@
-15
-push_back 1
-push_front 2
-front
-back
-size
+26
+add 1
+add 2
+check 1
+check 2
+check 3
+remove 2
+check 1
+check 2
+toggle 3
+check 1
+check 2
+check 3
+check 4
+all
+check 10
+check 20
+toggle 10
+remove 20
+check 10
+check 20
 empty
-pop_front
-pop_back
-pop_front
-size
-empty
-pop_back
-push_front 3
-empty
-front
+check 1
+toggle 1
+check 1
+toggle 1
+check 1

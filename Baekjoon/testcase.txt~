@@ -1,16 +1,16 @@
 15
-push 1
-push 2
+push_back 1
+push_front 2
 front
 back
 size
 empty
-pop
-pop
-pop
+pop_front
+pop_back
+pop_front
 size
 empty
-pop
-push 3
+pop_back
+push_front 3
 empty
 front
