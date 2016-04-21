@@ -45,8 +45,18 @@ int main()
 		}
 		else if(!strcmp("size", command)) printf("%d\n", d.size());
 		else if(!strcmp("empty", command)) printf("%d\n", d.empty());
-		else if(!strcmp("front", command)) printf("%d\n", d.front());
-		else if(!strcmp("back", command)) printf("%d\n", d.back());
+		else if(!strcmp("front", command)) 
+		{
+			if(d.empty()) num = -1;
+			else num = d.front();
+			printf("%d\n", num);
+		}
+		else if(!strcmp("back", command)) 
+		{
+			if(d.empty()) num = -1;
+			else num = d.back();
+			printf("%d\n", num);
+		}
 	}
 	return 0;
 }
