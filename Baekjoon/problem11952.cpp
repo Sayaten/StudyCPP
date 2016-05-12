@@ -31,26 +31,28 @@ int main()
     for(int i = 0 ; i < k ; ++i)
     {
         list< pair<int, int> > qu;
+		bool isVisited[n + 1];
         qu.push_back(make_pair(0, deadCity[i]));
-		cost[deadCity[i]] = (long long)0x7fffffffffffff;
+		memset(isVisited, false, sizeof(isVisited));
+		isVisited[deadCity[i]] = true;
         while(!qu.empty())
         {
             int v = qu.front().second;
             int w = qu.front().first;
             qu.pop_front();
-            for(auto &e1 : adj[v]) 
-            {
-                if(w + 1 <= s && cost[e1] < q) 
+			cost[v] = q;
+			for(auto &e1 : adj[v]) 
+				if(!isVisited[e1] && w + 1 <= s) 
 				{
-					cost[e1] = q;
+					isVisited[e1] = true;
 					qu.push_back(make_pair(w + 1, e1));
 				}
-            }
         }
+		cost[deadCity[i]] = (long long)0x7fffffffffffff;
     }
 	cost[n] = 0;
     priority_queue< pair<long long, int>, vector< pair<long long, int> >, greater< pair<long long, int> > > pq;
-    pq.push(make_pair(0, 1));
+    pq.push(make_pair((long long)0, 1));
     long long sp[n + 1];
     memset(sp, -1, sizeof(sp));
     while(!pq.empty())
@@ -62,6 +64,6 @@ int main()
         sp[v] = w;
         for(auto e : adj[v]) pq.push(make_pair(w + cost[e], e));
     }
-    printf("%lld\n", sp[n]);
+	printf("%lld\n", sp[n]);
     return 0;
 }
