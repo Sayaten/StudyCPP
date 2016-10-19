@@ -1,19 +1,14 @@
 #include <stdio.h>
-#include <stdbool.h>
-typedef struct _Data Data;
-struct _Data
+int min(int n1, int n2)
 {
-	int x;
-	int y;
-	int c;
-};
+	return n1 < n2 ? n1 : n2;
+}
 int main()
 {
-	bool v[1001][1001] = { 0, };
-	int x, y, w, h;
-	int f, r;
-	Data q[1001];
+	int x, y, w, h, dx, dy;
 	scanf("%d %d %d %d", &x, &y, &w, &h);
-	while(
+	dx = w - x;
+	dy = h - y;
+	printf("%d\n", min(min(x, dx), min(y, dy)));
 	return 0;
 }
