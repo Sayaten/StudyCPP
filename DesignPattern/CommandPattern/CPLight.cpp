@@ -1,14 +1,25 @@
 #include "CPLight.hpp"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
+Light::Light(string place)
+{
+	this -> place = place;
+}
+
 void Light::on()
 {
-	cout << "Light On" << endl;
+	cout << place << " Light On" << endl;
 }
 
 void Light::off()
 {
-	cout << "Light Off" << endl;
+	cout << place << " Light Off" << endl;
+}
+
+string Light::toString()
+{
+	return place;
 }

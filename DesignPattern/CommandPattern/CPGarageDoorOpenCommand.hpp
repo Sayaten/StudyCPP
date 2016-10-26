@@ -9,6 +9,7 @@ class GarageDoorOpenCommand : public Command
 	public:
 		GarageDoorOpenCommand(GarageDoor &door);
 		virtual void execute() { door.open(); }
+		virtual string toString() { return door.toString() + " door open command"; }
 	private:
 		GarageDoor &door;
 };
